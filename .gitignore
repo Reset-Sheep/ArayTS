@@ -1,0 +1,16 @@
+# .gitignore
+
+# Node.js
+node_modules/
+
+# TypeScript
+dist/
+*.js
+*.js.map
+
+.idea/
+# Jest
+/coverage/
+
+# Test files
+tests/
