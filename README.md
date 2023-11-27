@@ -66,6 +66,26 @@ There are three ways to use the email verification function:
       const isTrue = Email('3497547063@qq.com',["outlook.com","qq.com"]);
       ```
 
+#### :tada: Mobile phone number verification:
+
+If correct, return true, if incorrect, return false.
+There are three ways to use the mobile phone number verification function:
+1. Enter the mobile phone number whose format needs to be verified.
+   ```
+   import {Phone} from 'arayts';
+   const isTrue = Phone('15156169999');
+   ```
+2. Input the mobile phone number that needs to be verified and the region that needs to be verified for compliance.
+   ```
+   import {Phone} from 'arayts';
+   const isTrue = Phone('15156169999','zh-CN');
+   ```
+3. Pass in the mobile phone number whose format needs to be verified and the region array that needs to be verified for compliance.
+   ```
+   import {Phone} from 'arayts';
+   const isTrue = Phone('15156169999',['zh-CN','en-hk']);
+   ```
+
 #### :tada: Date operations:
 
 There are four date operation functions:
@@ -94,26 +114,6 @@ There are four date operation functions:
      const isTrue = Time.order(previousDate); //By default the latter date is the local date.
      ```
 4. Date calculation (return number type data).
-
-#### :tada: Mobile phone number verification:
-
-If correct, return true, if incorrect, return false.
-There are three ways to use the mobile phone number verification function:
-1. Enter the mobile phone number whose format needs to be verified.
-   ```
-   import {Phone} from 'arayts';
-   const isTrue = Phone('15156169999');
-   ```
-2. Input the mobile phone number that needs to be verified and the region that needs to be verified for compliance.
-   ```
-   import {Phone} from 'arayts';
-   const isTrue = Phone('15156169999','zh-CN');
-   ```
-3. Pass in the mobile phone number whose format needs to be verified and the region array that needs to be verified for compliance.
-   ```
-   import {Phone} from 'arayts';
-   const isTrue = Phone('15156169999',['zh-CN','en-hk']);
-   ```
 
 #### :tada: Generate random numbers:
 
