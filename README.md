@@ -4,7 +4,7 @@
 <hr />
 
 [//]: # (### English | [简体中文]&#40;https://github.com/Kuingsmile/PicList/blob/dev/README.md&#41;)
-// ### English
+### English
  Through ArayTS, you can easily use TypeScript in Vue3\other TS supported projects to improve development efficiency and reduce potential errors. Designed to simplify daily tasks, it provides developers with a set of practical tools and services to make using TypeScript in Vue projects easy and enjoyable.
 
 ### Use a package manager
