@@ -97,4 +97,4 @@ class Time{
         }
     }
 }
-export {Time};
+export default Time;
