@@ -5,7 +5,7 @@
 ### 简体中文 | [English](https://github.com/Reset-Sheep/ArayTS/blob/main/README.md)
 
 通过 ArayTS，您可以轻松在 Vue3 或其他支持 TypeScript 的项目中使用 TypeScript，提高开发效率并减少潜在错误。旨在简化日常任务，它为开发人员提供了一套实用工具和服务，使在 Vue 项目中使用 TypeScript 变得轻松愉快。
-
+ <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/_08aab89c-1522-4364-8791-ce68b1465146.jpg" alt="bg" /></p>
 ### 使用包管理器
 我建议您使用 **NPM** 包管理器安装 **ArayTS**。
 ```
