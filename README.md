@@ -5,6 +5,7 @@
 
 ### English | [简体中文](https://github.com/Reset-Sheep/ArayTS/blob/main/README.CN.md)
  Through ArayTS, you can easily use TypeScript in Vue3\other TS supported projects to improve development efficiency and reduce potential errors. Designed to simplify daily tasks, it provides developers with a set of practical tools and services to make using TypeScript in Vue projects easy and enjoyable.
+ <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/_08aab89c-1522-4364-8791-ce68b1465146.jpg" alt="bg" /></p>
 
 ### Use a package manager
 I recommend that you install **ArayTS** using the **NPM** package manager.
