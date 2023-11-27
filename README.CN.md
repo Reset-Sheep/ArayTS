@@ -7,6 +7,7 @@
 通过 ArayTS，您可以轻松在 Vue3 或其他支持 TypeScript 的项目中使用 TypeScript，提高开发效率并减少潜在错误。旨在简化日常任务，它为开发人员提供了一套实用工具和服务，使在 Vue 项目中使用 TypeScript 变得轻松愉快。
  <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/_08aab89c-1522-4364-8791-ce68b1465146.jpg" alt="bg" /></p>
 ### 使用包管理器
+
 我建议您使用 **NPM** 包管理器安装 **ArayTS**。
 ```
 npm install arayts --save
@@ -58,64 +59,64 @@ npm install arayts --save
         const isTrue = Phone('15156169999', ['zh-CN', 'en-hk']);
         ```
 
-       - 日期操作：
+- 日期操作：
 
-         有四个日期操作函数：
-           1. 获取日期（返回字符串类型数据）。
-               ```
-               import { Time } from 'arayts';
-               const date = Time.get();
-               ```
-           2. 确定日期范围（返回布尔类型数据）。
-               ```
-               import { Time } from 'arayts';
-               const verifiedDate = '2023/11/26';
-               const previousDate = '2023/11/25';
-               const laterDate = '2023/11/27';
+  有四个日期操作函数：
+    1. 获取日期（返回字符串类型数据）。
+       ```
+       import { Time } from 'arayts';
+       const date = Time.get();
+       ```
+    2. 确定日期范围（返回布尔类型数据）。
+       ```
+       import { Time } from 'arayts';
+       const verifiedDate = '2023/11/26';
+       const previousDate = '2023/11/25';
+       const laterDate = '2023/11/27';
         
-               const isTrue = Time.range(verifiedDate, previousDate); // 默认情况下，后一天是本地日期。
-               const isTrueTwo = Time.range(verifiedDate, previousDate, laterDate);
-               ```
-           3. 日期比较（返回布尔类型数据）。
-               ```
-               import { Time } from 'arayts';
-               const previousDate = '2023/11/25';
-               const laterDate = '2023/11/27';
+       const isTrue = Time.range(verifiedDate, previousDate); // 默认情况下，后一天是本地日期。
+       const isTrueTwo = Time.range(verifiedDate, previousDate, laterDate);
+       ```
+    3. 日期比较（返回布尔类型数据）。
+       ```
+       import { Time } from 'arayts';
+       const previousDate = '2023/11/25';
+       const laterDate = '2023/11/27';
             
-               const isTrue = Time.order(previousDate, laterDate);
-               const isTrue = Time.order(previousDate); // 默认情况下，后一天是本地日期。
-               ```
-           4. 日期计算（返回数字类型数据）。
+       const isTrue = Time.order(previousDate, laterDate);
+       const isTrue = Time.order(previousDate); // 默认情况下，后一天是本地日期。
+       ```
+    4. 日期计算（返回数字类型数据）。
 
-              目前仅支持年、月和日的计算。如有需要，可以在将来的版本中添加计算，请与管理员联系。
+       目前仅支持年、月和日的计算。如有需要，可以在将来的版本中添加计算，请与管理员联系。
 
-              有三个日期计算函数：
-               1. 计算天数。
-                   ```
-                   import { Time } from 'arayts';
-                   const previousDate = '2023/11/25';
-                   const laterDate = '2023/11/27';
+       有三个日期计算函数：
+         1. 计算天数。
+            ```
+            import { Time } from 'arayts';
+            const previousDate = '2023/11/25';
+            const laterDate = '2023/11/27';
             
-                   const days = Time.days(previousDate, laterDate);
-                   const days = Time.days(previousDate); // 默认情况下，后一天是本地日期。
-                   ```
-               2. 计算月数。
-                  ```
-                   import { Time } from 'arayts';
-                   const previousDate = '2023/11/25';
-                   const laterDate = '2023/11/27';
+            const days = Time.days(previousDate, laterDate);
+            const days = Time.days(previousDate); // 默认情况下，后一天是本地日期。
+             ```
+         2. 计算月数。
+            ```
+            import { Time } from 'arayts';
+            const previousDate = '2023/11/25';
+            const laterDate = '2023/11/27';
             
-                   const months = Time.months(previousDate, laterDate);
-                   const months = Time.months(previousDate); // 默认情况下，后一天是本地日期。
-                   ```
-               3. 计算年数。
-                   ```
-                   import { Time } from 'arayts';
-                   const previousDate = '2023/11/25';
-                   const laterDate = '2023/11/27';
+            const months = Time.months(previousDate, laterDate);
+            const months = Time.months(previousDate); // 默认情况下，后一天是本地日期。
+            ```
+         3. 计算年数。
+            ```
+            import { Time } from 'arayts';
+            const previousDate = '2023/11/25';
+            const laterDate = '2023/11/27';
             
-                   const years = Time.years
-                   ```
+            const years = Time.years
+             ```
 <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/logo.jpg" alt="arayts" width="200" /></p>
 <P align="center"><b>ArayTS</b>，一套实用工具和服务，使 TypeScript 在 Vue 项目中变得轻松愉快。</P>
 <hr />
