@@ -53,9 +53,6 @@ const date = arayts.Time.get();
 有三种使用电子邮件验证功能的方式：
 1. 输入需要验证的电子邮件地址。
 
-  如果正确，返回 true，如果不正确，返回 false。
-  有三种使用电子邮件验证功能的方式：
-  1. 输入需要验证的电子邮件地址。
   ```
   import { Email } from 'arayts';
   const isTrue = Email('3497547233@qq.com');
