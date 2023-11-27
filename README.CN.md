@@ -117,6 +117,23 @@ npm install arayts --save
             
             const years = Time.years
              ```
+- 生成随机数：
+    支持两种使用方式，返回number类型数据：
+  
+    1、只传入随机数的位数；
+
+        ````
+         从“arayts”导入{随机}；
+            
+         常量数据=随机（4）；
+        ````
+    2、传入位数和范围；
+
+        ````
+        从“arayts”导入{随机}；
+            
+        常量数据 = 随机(4,0,100);
+        ````
 <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/logo.jpg" alt="arayts" width="200" /></p>
 <P align="center"><b>ArayTS</b>，一套实用工具和服务，使 TypeScript 在 Vue 项目中变得轻松愉快。</P>
 <hr />
