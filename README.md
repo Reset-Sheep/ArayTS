@@ -1,11 +1,10 @@
-<<<<<<< HEAD
-。<p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/logo.jpg" alt="arayts" width="150" /></p>
+<p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/logo.jpg" alt="arayts" width="150" /></p>
 
 <P align="center"><b>ArayTS</b>，A set of practical tools and services that make working with TypeScript in Vue projects easy and enjoyable.</P>
 <hr />
 
 ### English | [简体中文](https://github.com/Kuingsmile/PicList/blob/dev/README.md)
-
+[//]: # (### English)
  Through ArayTS, you can easily use TypeScript in Vue3\other TS supported projects to improve development efficiency and reduce potential errors. Designed to simplify daily tasks, it provides developers with a set of practical tools and services to make using TypeScript in Vue projects easy and enjoyable.
 
 ### Use a package manager
@@ -136,10 +135,6 @@ In **1.0.3 and below**, **ArayTS** does not support global import. You can use *
             
         const data = random(4,0,100);
         ```
-=======
 <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/logo.jpg" alt="arayts" width="200" /></p>
 <P align="center"><b>ArayTS</b>，一套实用工具和服务，使 TypeScript 在 Vue 项目中变得轻松愉快。</P>
 <hr />
-
- 通过 ArayTS，轻松在 Vue3\其他TS支持的 项目中使用 TypeScript，提高开发效率，减少潜在错误。旨在简化日常任务，为开发者提供一套实用工具和服务，使 TypeScript 在 Vue 项目中变得轻松愉快
->>>>>>> 6a1480f0d86dbf4cbf5b612c31d98d704c267d2e
