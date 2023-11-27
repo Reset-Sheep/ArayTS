@@ -86,10 +86,10 @@ class Time{
             return NaN;
         }
     }
-    static order(previousDate: string, laterDate: string): boolean {
+    static order(previousDate: string, laterDate?: string): boolean {
         try {
             const start = new Date(previousDate);
-            const end = new Date(laterDate);
+            const end = laterDate?new Date(laterDate): new Date(Time.getFormattedLocalDate());
             return start <= end;
         } catch (e) {
             console.log(e);
