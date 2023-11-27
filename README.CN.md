@@ -21,7 +21,7 @@ npm install arayts --save
 </script>
 ```
 ### 操作手册
-- 电子邮件验证：
+#### 电子邮件验证：
 
   如果正确，返回 true，如果不正确，返回 false。
   有三种使用电子邮件验证功能的方式：
@@ -40,7 +40,7 @@ npm install arayts --save
         import { Email } from 'arayts';
         const isTrue = Email('3497547063@qq.com', ["outlook.com", "qq.com"]);
         ```
-- 手机号码验证：
+#### 手机号码验证：
 
   如果正确，返回 true，如果不正确，返回 false。
   有三种使用手机号码验证功能的方式：
@@ -60,7 +60,7 @@ npm install arayts --save
         const isTrue = Phone('15156169999', ['zh-CN', 'en-hk']);
         ```
 
-- 日期操作：
+#### 日期操作：
 
   有四个日期操作函数：
     1. 获取日期（返回字符串类型数据）。
@@ -118,7 +118,7 @@ npm install arayts --save
             
             const years = Time.years
              ```
-- 生成随机数：
+#### 生成随机数：
     支持两种使用方式，返回number类型数据：
   
     1、只传入随机数的位数；
