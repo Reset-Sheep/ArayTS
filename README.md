@@ -1,11 +1,10 @@
-<<<<<<< HEAD
-。<p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/logo.jpg" alt="arayts" width="150" /></p>
+<p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/logo.jpg" alt="arayts" width="150" /></p>
 
 <P align="center"><b>ArayTS</b>，A set of practical tools and services that make working with TypeScript in Vue projects easy and enjoyable.</P>
 <hr />
 
-### English | [简体中文](https://github.com/Kuingsmile/PicList/blob/dev/README.md)
-
+[//]: # (### English | [简体中文]&#40;https://github.com/Kuingsmile/PicList/blob/dev/README.md&#41;)
+// ### English
  Through ArayTS, you can easily use TypeScript in Vue3\other TS supported projects to improve development efficiency and reduce potential errors. Designed to simplify daily tasks, it provides developers with a set of practical tools and services to make using TypeScript in Vue projects easy and enjoyable.
 
 ### Use a package manager
