@@ -3,7 +3,7 @@
 <P align="center"><b>ArayTS</b>，A set of practical tools and services that make working with TypeScript in Vue projects easy and enjoyable.</P>
 <hr />
 
-### English | [简体中文](https://github.com/Reset-Sheep/ArayTS/blob/main/README.CN.md)
+### :hear_no_evil: English | [简体中文](https://github.com/Reset-Sheep/ArayTS/blob/main/README.CN.md)
  Through ArayTS, you can easily use TypeScript in Vue3\other TS supported projects to improve development efficiency and reduce potential errors. Designed to simplify daily tasks, it provides developers with a set of practical tools and services to make using TypeScript in Vue projects easy and enjoyable.
  <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/_08aab89c-1522-4364-8791-ce68b1465146.jpg" alt="bg" /></p>
 
@@ -20,7 +20,7 @@ In **1.0.3 and below**, **ArayTS** does not support global import. You can use *
 </script>
 ```
 ### Manual
-#### E-mail verification:
+#### :tada: E-mail verification:
   If correct, return true, if incorrect, return false.
   There are three ways to use the email verification function:
   1. Input the email address that needs to be verified.
@@ -38,7 +38,7 @@ In **1.0.3 and below**, **ArayTS** does not support global import. You can use *
         import {Email} from 'arayts';
         const isTrue = Email('3497547063@qq.com',["outlook.com","qq.com"]);
         ```
-#### Mobile phone number verification:
+#### :tada: Mobile phone number verification:
 
    If correct, return true, if incorrect, return false.
    There are three ways to use the mobile phone number verification function:
@@ -58,7 +58,7 @@ In **1.0.3 and below**, **ArayTS** does not support global import. You can use *
    const isTrue = Phone('15156169999',['zh-CN','en-hk']);
    ```
 
-#### Date operations:
+#### :tada: Date operations:
 
    There are four date operation functions:
    1. Date acquisition (returns string type data).
@@ -118,7 +118,7 @@ In **1.0.3 and below**, **ArayTS** does not support global import. You can use *
             const years = Time.years(previousDate,laterDate);
             const years = Time.years(previousDate); //By default the latter date is the local date.
             ```
-#### Generate random numbers:
+#### :tada: Generate random numbers:
    Supports two usage methods, returning number type data:
    1. Only pass in the number of digits of the random number;
 
