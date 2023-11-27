@@ -253,7 +253,6 @@ Storage.remove('myFunction');   //Delete this function
 Storage.clear();    //Clear function
 ```
 
-#### :tada: Generate random numbers:
 <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/logo.jpg" alt="arayts" width="200" /></p>
 <P align="center"><b>ArayTS</b>，A set of practical tools and services that make working with TypeScript in Vue projects easy and enjoyable.</P>
 <hr />
