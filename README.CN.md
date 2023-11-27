@@ -80,7 +80,6 @@ const date = arayts.Time.get();
 有三种使用手机号码验证功能的方式：
 1. 输入需要验证格式的手机号码。
 
-  如果正确，返回 true，如果不正确，返回 false。
   有三种使用手机号码验证功能的方式：
   ```
   import { Phone } from 'arayts';
