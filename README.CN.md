@@ -2,7 +2,7 @@
 <P align="center"><b>ArayTS</b>，一套实用工具和服务，使在 Vue 项目中使用 TypeScript 变得轻松愉快。</P>
 <hr />
 
-### 简体中文 | [English](https://github.com/Kuingsmile/PicList/blob/dev/README.md)
+### 简体中文 | [English](https://github.com/Reset-Sheep/ArayTS/blob/main/README.md)
 
 通过 ArayTS，您可以轻松在 Vue3 或其他支持 TypeScript 的项目中使用 TypeScript，提高开发效率并减少潜在错误。旨在简化日常任务，它为开发人员提供了一套实用工具和服务，使在 Vue 项目中使用 TypeScript 变得轻松愉快。
 
