@@ -82,5 +82,7 @@ class PhoneNumberValidator {
 const Phone = (email: string,domains?: string | string[]) =>{
     return PhoneNumberValidator.isValid(email,domains);
 }
+
+
 export {Email,Phone};
 

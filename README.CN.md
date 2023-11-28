@@ -204,81 +204,72 @@ storedFunction();   //调用函数
 Storage.remove('myFunction');   //删除该条函数
 Storage.clear();    //清空函数
 ```
-=======
-  有四个日期操作函数：
-  1. 获取日期（返回字符串类型数据）。
-       ```
-       import { Time } from 'arayts';
-       const date = Time.get();
-       ```
-  2. 确定日期范围（返回布尔类型数据）。
-       ```
-       import { Time } from 'arayts';
-       const verifiedDate = '2023/11/26';
-       const previousDate = '2023/11/25';
-       const laterDate = '2023/11/27';
-        
-       const isTrue = Time.range(verifiedDate, previousDate); // 默认情况下，后一天是本地日期。
-       const isTrueTwo = Time.range(verifiedDate, previousDate, laterDate);
-       ```
-  3. 日期比较（返回布尔类型数据）。
-       ```
-       import { Time } from 'arayts';
-       const previousDate = '2023/11/25';
-       const laterDate = '2023/11/27';
-            
-       const isTrue = Time.order(previousDate, laterDate);
-       const isTrue = Time.order(previousDate); // 默认情况下，后一天是本地日期。
-       ```
-  4. 日期计算（返回数字类型数据）。
 
-       目前仅支持年、月和日的计算。如有需要，可以在将来的版本中添加计算，请与管理员联系。
+#### :tada: 密码加密：
+密码加密功能共有四种可选加密方式（pbkdf2，bcrypt，scrypt，md5），且每种加密方式有丰富的可选值，具体如下：
+1. salt方法，获取盐值；
+```
+import { Email,Phone,Time,random,Storage,salt, pbkdf2, bcrypt, scrypt, md5 } from '../index';
+import { salt } from 'arayts'; //若全局引入，该句可以不写
+const salt = salt(16); // 16 表示字节长度，不写默认 16 。
+```
 
-       有三个日期计算函数：
-       1. 计算天数。
-            ```
-            import { Time } from 'arayts';
-            const previousDate = '2023/11/25';
-            const laterDate = '2023/11/27';
-            
-            const days = Time.days(previousDate, laterDate);
-            const days = Time.days(previousDate); // 默认情况下，后一天是本地日期。
-             ```
-       2. 计算月数。
-            ```
-            import { Time } from 'arayts';
-            const previousDate = '2023/11/25';
-            const laterDate = '2023/11/27';
-            
-            const months = Time.months(previousDate, laterDate);
-            const months = Time.months(previousDate); // 默认情况下，后一天是本地日期。
-            ```
-       3. 计算年数。
-            ```
-            import { Time } from 'arayts';
-            const previousDate = '2023/11/25';
-            const laterDate = '2023/11/27';
-            
-            const years = Time.years
-             ```
-#### :tada: 生成随机数：
-  支持两种使用方式，返回number类型数据：
-  
-  1、只传入随机数的位数；
+2. pbkdf2加密；
+```
+import { pbkdf2 } from 'arayts'; //若全局引入，该句可以不写
 
-  ```
-  import {random} from 'arayts';
-            
-  const data = random(4);
-  ```
-  2、传入位数和范围；
+const data = pbkdf2("123","2323232");
+const data2 = pbkdf2("123","2323232",-1,-1,"",""); //后四位全部选取默认值，作用同上一句
+const data3 = pbkdf2("123","2323232",10,9,"sha512","base64");
 
-  ````
-  import {random} from 'arayts';
-            
-  const data = random(4,0,100);
-  ````
->>>>>>> 0ac9c7f090e9f250bfca320bbfac39e1cf8a263f
+// "123"：密码，必填
+// "2323232"：盐值，必填
+// 10：迭代次数，选填，后默认值10000
+// 9：位数，选填，默认值64
+// "sha512"：算法，选填，默认值'sha512'，可选值'sha512'、'sha1'、'sha256'、'md5'
+// "base64"：编码，选填，默认值'hex'，可选值'hex'、'base64'
+```
+
+3. bcrypt加密；
+```
+import { bcrypt } from 'arayts'; //若全局引入，该句可以不写
+
+const data = pbkdf2("123","2323232");
+const data2 = pbkdf2("123","2323232","",""); //后二位全部选取默认值，作用同上一句
+const data3 = pbkdf2("123","2323232","sha512","base64");
+
+// "123"：密码，必填
+// "2323232"：盐值，必填
+// "sha512"：算法，选填，默认值'sha512'，可选值'sha512'、'sha1'、'sha256'、'md5'
+// "base64"：编码，选填，默认值'hex'，可选值'hex'、'base64'
+```
+
+4. scrypt加密；
+```
+import { scrypt } from 'arayts'; //若全局引入，该句可以不写
+    
+const data = pbkdf2("123","2323232");
+const data2 = pbkdf2("123","2323232",-1,""); //后二位全部选取默认值，作用同上一句
+const data3 = pbkdf2("123","2323232",10,"base64");
+
+// "123"：密码，必填
+// "2323232"：盐值，必填
+// 10：位数，选填，默认值64
+// "base64"：编码，选填，默认值'hex'，可选值'hex'、'base64'
+```
+
+5. md5加密；
+```
+import { md5 } from 'arayts'; //若全局引入，该句可以不写
+
+const data = pbkdf2("123");
+const data2 = pbkdf2("123",""); //后一位全部选取默认值，作用同上一句
+const data3 = pbkdf2("123","base64");
+
+// "123"：密码，必填
+// "base64"：编码，选填，默认值'hex'，可选值'hex'、'base64'
+```
+
 <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/logo.jpg" alt="arayts" width="200" /></p>
 <P align="center"><b>ArayTS</b>，一套实用工具和服务，使 TypeScript 在 Vue 项目中变得轻松愉快。</P>
 <hr />

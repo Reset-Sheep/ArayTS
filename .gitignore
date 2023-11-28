@@ -8,8 +8,7 @@ dist/
 *.js
 *.js.map
 
-README.CN.md
-README.md
+*.md
 .idea/
 # Jest
 /coverage/
