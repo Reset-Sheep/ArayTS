@@ -6,7 +6,7 @@
 
 通过 ArayTS，您可以轻松在 Vue3 或其他支持 TypeScript 的项目中使用 TypeScript，提高开发效率并减少潜在错误。旨在简化日常任务，它为开发人员提供了一套实用工具和服务，使在 Vue 项目中使用 TypeScript 变得轻松愉快。
  <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/_08aab89c-1522-4364-8791-ce68b1465146.jpg" alt="bg" /></p>
- 
+
 ### 使用包管理器
 
 我建议您使用 **NPM** 包管理器安装 **ArayTS**。
@@ -20,7 +20,7 @@ npm install arayts --save
 在需要使用的vue文件中引入：
 ```
 <script lang="ts" setup>
-  import {Email} from 'arayts'
+  import {Email} from 'arayts'   //若全局引入，该句可以不写
 </script>
 ```
 
@@ -49,17 +49,17 @@ const date = arayts.Time.get();
 有三种使用电子邮件验证功能的方式：
 1. 输入需要验证的电子邮件地址。
   ```
-  import { Email } from 'arayts';
+  import { Email } from 'arayts'; 
   const isTrue = Email('3497547233@qq.com');
   ```
 2. 输入需要验证格式的电子邮件地址和需要验证符合性的电子邮件域名。
   ```
-  import { Email } from 'arayts';
+  import { Email } from 'arayts'; 
   const isTrue = Email('3497547233@qq.com', 'qq.com');
   ```
 3. 输入需要验证格式的电子邮件地址和需要验证符合性的电子邮件域名数组。
   ```
-  import { Email } from 'arayts';
+  import { Email } from 'arayts'; 
   const isTrue = Email('3497547063@qq.com', ["outlook.com", "qq.com"]);
   ```
 #### :tada: 手机号码验证：
@@ -68,17 +68,17 @@ const date = arayts.Time.get();
 有三种使用手机号码验证功能的方式：
 1. 输入需要验证格式的手机号码。
   ```
-  import { Phone } from 'arayts';
+  import { Phone } from 'arayts'; 
   const isTrue = Phone('15156169999');//默认中国地区
   ```
 2. 输入需要验证的手机号码和需要验证符合性的地区。
   ```
-  import { Phone } from 'arayts';
+  import { Phone } from 'arayts'; 
   const isTrue = Phone('15156169999', 'zh-CN');
   ```
 3. 传入需要验证格式的手机号码和需要验证符合性的地区数组。
   ```
-  import { Phone } from 'arayts';
+  import { Phone } from 'arayts'; 
   const isTrue = Phone('15156169999', ['zh-CN', 'en-hk']);
   ```
 
@@ -87,7 +87,7 @@ const date = arayts.Time.get();
 有四个日期操作函数：
 1. 获取日期（返回字符串类型数据）。
      ```
-     import { Time } from 'arayts';
+     import { Time } from 'arayts'; 
      const date = Time.get();
      const date = Time.get("YYYY=MM=DD"); //可以自定义返回的日期格式，但是要包括YYYY、MM、DD中的一种或两种或全部
      ```
@@ -163,6 +163,8 @@ const date = arayts.Time.get();
 临时存储函数功能支持存储函数后在任何页面进行调用，大大节省代码冗余，提高代码复用。
 ```
 // 自定义的函数
+import { Storage } from 'arayts';
+
 function existingFunction() {
     console.log(123)
 }
@@ -177,14 +179,13 @@ Storage.clear();    //清空函数
 密码加密功能共有四种可选加密方式（pbkdf2，bcrypt，scrypt，md5），且每种加密方式有丰富的可选值，具体如下：
 1. salt方法，获取盐值；
 ```
-import { Email,Phone,Time,random,Storage,salt, pbkdf2, bcrypt, scrypt, md5 } from '../index';
-import { salt } from 'arayts'; //若全局引入，该句可以不写
+import { salt } from 'arayts';  
 const salt = salt(16); // 16 表示字节长度，不写默认 16 。
 ```
 
 2. pbkdf2加密；
 ```
-import { pbkdf2 } from 'arayts'; //若全局引入，该句可以不写
+import { pbkdf2 } from 'arayts';  
 
 const data = pbkdf2("123","2323232");
 const data2 = pbkdf2("123","2323232",-1,-1,"",""); //后四位全部选取默认值，作用同上一句
@@ -200,7 +201,7 @@ const data3 = pbkdf2("123","2323232",10,9,"sha512","base64");
 
 3. bcrypt加密；
 ```
-import { bcrypt } from 'arayts'; //若全局引入，该句可以不写
+import { bcrypt } from 'arayts';  
 
 const data = pbkdf2("123","2323232");
 const data2 = pbkdf2("123","2323232","",""); //后二位全部选取默认值，作用同上一句
@@ -214,7 +215,7 @@ const data3 = pbkdf2("123","2323232","sha512","base64");
 
 4. scrypt加密；
 ```
-import { scrypt } from 'arayts'; //若全局引入，该句可以不写
+import { scrypt } from 'arayts';  
     
 const data = pbkdf2("123","2323232");
 const data2 = pbkdf2("123","2323232",-1,""); //后二位全部选取默认值，作用同上一句
@@ -228,7 +229,7 @@ const data3 = pbkdf2("123","2323232",10,"base64");
 
 5. md5加密；
 ```
-import { md5 } from 'arayts'; //若全局引入，该句可以不写
+import { md5 } from 'arayts';  
 
 const data = pbkdf2("123");
 const data2 = pbkdf2("123",""); //后一位全部选取默认值，作用同上一句
