@@ -6,11 +6,7 @@
 
 通过 ArayTS，您可以轻松在 Vue3 或其他支持 TypeScript 的项目中使用 TypeScript，提高开发效率并减少潜在错误。旨在简化日常任务，它为开发人员提供了一套实用工具和服务，使在 Vue 项目中使用 TypeScript 变得轻松愉快。
  <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/_08aab89c-1522-4364-8791-ce68b1465146.jpg" alt="bg" /></p>
-
-
-
  
-
 ### 使用包管理器
 
 我建议您使用 **NPM** 包管理器安装 **ArayTS**。
@@ -52,21 +48,16 @@ const date = arayts.Time.get();
 如果正确，返回 true，如果不正确，返回 false。
 有三种使用电子邮件验证功能的方式：
 1. 输入需要验证的电子邮件地址。
-
   ```
   import { Email } from 'arayts';
   const isTrue = Email('3497547233@qq.com');
   ```
-
 2. 输入需要验证格式的电子邮件地址和需要验证符合性的电子邮件域名。
-
   ```
   import { Email } from 'arayts';
   const isTrue = Email('3497547233@qq.com', 'qq.com');
   ```
-
 3. 输入需要验证格式的电子邮件地址和需要验证符合性的电子邮件域名数组。
-
   ```
   import { Email } from 'arayts';
   const isTrue = Email('3497547063@qq.com', ["outlook.com", "qq.com"]);
@@ -76,20 +67,16 @@ const date = arayts.Time.get();
 如果正确，返回 true，如果不正确，返回 false。
 有三种使用手机号码验证功能的方式：
 1. 输入需要验证格式的手机号码。
-
   ```
   import { Phone } from 'arayts';
   const isTrue = Phone('15156169999');//默认中国地区
   ```
-
 2. 输入需要验证的手机号码和需要验证符合性的地区。
-
   ```
   import { Phone } from 'arayts';
   const isTrue = Phone('15156169999', 'zh-CN');
   ```
-
-3. 传入需要验证格式的手机号码和需要验证符合性的地区数组
+3. 传入需要验证格式的手机号码和需要验证符合性的地区数组。
   ```
   import { Phone } from 'arayts';
   const isTrue = Phone('15156169999', ['zh-CN', 'en-hk']);
@@ -102,6 +89,7 @@ const date = arayts.Time.get();
      ```
      import { Time } from 'arayts';
      const date = Time.get();
+     const date = Time.get("YYYY=MM=DD"); //可以自定义返回的日期格式，但是要包括YYYY、MM、DD中的一种或两种或全部
      ```
 2. 确定日期范围（返回布尔类型数据）。
      ```
@@ -184,7 +172,6 @@ storedFunction();   //调用函数
 Storage.remove('myFunction');   //删除该条函数
 Storage.clear();    //清空函数
 ```
-<<<<<<< HEAD
 
 #### :tada: 密码加密：
 密码加密功能共有四种可选加密方式（pbkdf2，bcrypt，scrypt，md5），且每种加密方式有丰富的可选值，具体如下：
@@ -251,8 +238,6 @@ const data3 = pbkdf2("123","base64");
 // "base64"：编码，选填，默认值'hex'，可选值'hex'、'base64'
 ```
 
-=======
->>>>>>> 18dc232afa468722c221e9cab4e25c74d02b1c41
 <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/logo.jpg" alt="arayts" width="200" /></p>
 <P align="center"><b>ArayTS</b>，一套实用工具和服务，使 TypeScript 在 Vue 项目中变得轻松愉快。</P>
 <hr />
