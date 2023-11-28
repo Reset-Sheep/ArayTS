@@ -7,11 +7,8 @@
 
 Through ArayTS, you can easily use TypeScript in Vue3\other TS supported projects to improve development efficiency and reduce potential errors. Designed to simplify daily tasks, it provides developers with a set of practical tools and services to make using TypeScript in Vue projects easy and enjoyable.
 
-<<<<<<< HEAD
 Through ArayTS, you can easily use TypeScript in Vue3\other TS supported projects to improve development efficiency and reduce potential errors. Designed to simplify daily tasks, it provides developers with a set of practical tools and services to make using TypeScript in Vue projects easy and enjoyable.
 
-=======
->>>>>>> 18dc232afa468722c221e9cab4e25c74d02b1c41
  <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/_08aab89c-1522-4364-8791-ce68b1465146.jpg" alt="bg" /></p>
 
 ### Use a package manager
@@ -96,6 +93,7 @@ There are four date operation functions:
      ```
      import {Time} from 'arayts';
      const date = Time.get();
+     const date = Time.get("YYYY=MM=DD"); //The returned date format can be customized, but it must include one, two or all of YYYY, MM, DD
      ```
 2. Determine the date range (return boolean type data).
      ```
@@ -149,7 +147,7 @@ Supports two usage methods, returning number type data:
 #### :tada: Temporary storage function:
 The temporary storage function function supports storing functions and calling them on any page, which greatly saves code redundancy and improves code reuse.
 ```
-// 自定义的函数
+// custom function
 function existingFunction() {
     console.log(123)
 }
@@ -160,7 +158,6 @@ Storage.remove('myFunction');   //Delete this function
 Storage.clear();    //Clear function
 ```
 
-<<<<<<< HEAD
 #### :tada: Password encryption:
 The password encryption function has four optional encryption methods (pbkdf2, bcrypt, scrypt, md5). Each encryption method has rich optional values, as follows:
 1. Salt method, obtain salt value;
@@ -226,8 +223,6 @@ const data3 = pbkdf2("123","base64");
 // "base64": encoding, optional, default value 'hex', optional values 'hex', 'base64'
 ```
 
-=======
->>>>>>> 18dc232afa468722c221e9cab4e25c74d02b1c41
 <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/logo.jpg" alt="arayts" width="200" /></p>
 <P align="center"><b>ArayTS</b>，A set of practical tools and services that make working with TypeScript in Vue projects easy and enjoyable.</P>
 <hr />
