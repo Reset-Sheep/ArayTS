@@ -22,7 +22,7 @@ I recommend you to use **ArayTS** the way you introduce it inside the component.
 Introduced in the vue file that needs to be used:
 ```
 <script lang="ts" setup>
-  import {Email} from 'arayts'
+  import {Email} from 'arayts'  //If introduced globally, this sentence does not need to be written
 </script>
 ```
 
@@ -148,6 +148,8 @@ Supports two usage methods, returning number type data:
 The temporary storage function function supports storing functions and calling them on any page, which greatly saves code redundancy and improves code reuse.
 ```
 // custom function
+import { Storage } from 'arayts';
+
 function existingFunction() {
     console.log(123)
 }
@@ -162,14 +164,13 @@ Storage.clear();    //Clear function
 The password encryption function has four optional encryption methods (pbkdf2, bcrypt, scrypt, md5). Each encryption method has rich optional values, as follows:
 1. Salt method, obtain salt value;
 ```
-import { Email,Phone,Time,random,Storage,salt, pbkdf2, bcrypt, scrypt, md5 } from '../index';
-import { salt } from 'arayts'; //If introduced globally, this sentence does not need to be written
+import { salt } from 'arayts';   
 const salt = salt(16); // 16 represents the byte length, the default value is 16 if not written.
 ```
 
 2. pbkdf2 encryption;
 ```
-import { pbkdf2 } from 'arayts'; //If introduced globally, this sentence does not need to be written
+import { pbkdf2 } from 'arayts';   
 
 const data = pbkdf2("123","2323232");
 const data2 = pbkdf2("123","2323232",-1,-1,"",""); //Select the default value for all the last four digits, the effect is the same as the previous sentence
@@ -185,7 +186,7 @@ const data3 = pbkdf2("123","2323232",10,9,"sha512","base64");
 
 3. bcrypt encryption;
 ```
-import { bcrypt } from 'arayts'; //If introduced globally, this sentence does not need to be written
+import { bcrypt } from 'arayts';   
 
 const data = pbkdf2("123","2323232");
 const data2 = pbkdf2("123","2323232","",""); //Select the default value for all the last two digits, the effect is the same as the previous sentence
@@ -199,7 +200,7 @@ const data3 = pbkdf2("123","2323232","sha512","base64");
 
 4. scrypt encryption;
 ```
-import { scrypt } from 'arayts'; //If introduced globally, this sentence does not need to be written
+import { scrypt } from 'arayts';   
     
 const data = pbkdf2("123","2323232");
 const data2 = pbkdf2("123","2323232",-1,""); //Select the default value for all the last two digits, the effect is the same as the previous sentence
@@ -213,7 +214,7 @@ const data3 = pbkdf2("123","2323232",10,"base64");
 
 5、md5 encryption；
 ```
-import { md5 } from 'arayts'; //If introduced globally, this sentence does not need to be written
+import { md5 } from 'arayts';   
 
 const data = pbkdf2("123");
 const data2 = pbkdf2("123",""); //Select the default value for all the last digits, the effect is the same as the previous sentence
