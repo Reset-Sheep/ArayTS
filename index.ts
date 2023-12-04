@@ -5,7 +5,9 @@ import Storage from "./src/storage/storage";
 import { salt } from "./src/other/459845231545454";
 import applyStyles from "./src/other/compatible";
 import {fuzzyFilter} from "./src/other/filter";
-export {Email,Phone,Time,random,Storage,salt,applyStyles,fuzzyFilter};
+import Doc from "./src/utils/mouse";
+
+export {Email,Phone,Time,random,Storage,salt,applyStyles,fuzzyFilter,Doc};
 // const arayts = { Email, Phone, Time, random, Storage, salt };
 // const install = (app: any) => {
 //     app.config.globalProperties.$arayts = {
