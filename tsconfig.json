@@ -6,7 +6,7 @@
     /* Modules */
     "module": "commonjs",
     "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
-
+    "esModuleInterop": true,
     "strict": true,
   },
   "include": ["src/**/*.ts", "tests/**/*.ts"],

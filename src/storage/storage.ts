@@ -1,29 +1,22 @@
-interface IStorage {
-    saveFunction(name: string, func: Function): void;
-    getFunction(name: string): Function | undefined;
-    // other methods...
-}
-class FunctionStorage {
+// storage.ts
 
-    private functionMap: Record<string, Function> = {};
+const functionMap: Record<string, Function> = {};
 
-    save(functionName: string, existingFunction: Function): void {
+const Storage = {
+    save: function (functionName: string, existingFunction: Function): void {
         const functionSource = existingFunction.toString();
-        this.functionMap[functionName] = new Function('return ' + functionSource)();
-    }
-
-    get(functionName: string): Function {
-        return this.functionMap[functionName];
-    }
-
-    remove(functionName: string): void {
-        delete this.functionMap[functionName];
-    }
-
-    clear(): void {
-        this.functionMap = {};
-    }
-}
-const Storage = new FunctionStorage();
-
+        functionMap[functionName] = new Function('return ' + functionSource)();
+    },
+    get: function (functionName: string): Function {
+        return functionMap[functionName];
+    },
+    remove: function (functionName: string): void {
+        delete functionMap[functionName];
+    },
+    clear: function (): void {
+        for (const key in functionMap) {
+            delete functionMap[key];
+        }
+    },
+};
 export default Storage;
