@@ -24,7 +24,7 @@ npm install arayts --save
 </script>
 ```
 
-### 全局引入
+<!-- ### 全局引入
 在main.ts文件中引入：
 ```
 import { createApp } from 'vue'
@@ -40,7 +40,7 @@ app.mount('#app')
 ```
 const isTrue = arayts.Email('3497547233@qq.com');
 const date = arayts.Time.get();
-```
+``` -->
 
 ### 操作手册
 #### :tada: 电子邮件验证：
@@ -176,14 +176,17 @@ Storage.clear();    //清空函数
 ```
 
 #### :tada: 密码加密：
-密码加密功能共有四种可选加密方式（pbkdf2，bcrypt，scrypt，md5），且每种加密方式有丰富的可选值，具体如下：
-1. salt方法，获取盐值；
+在ArayTS@1.2.8及以上版本中，密码加密功能在Vue项目中已取消使用，仅可使用其中的salt方法获取盐值，因为webpack > 5版本中取消了crypto等内置模块的使用，正在积极寻求同等替代。
+
+<!-- 密码加密功能共有四种可选加密方式（pbkdf2，bcrypt，scrypt，md5），且每种加密方式有丰富的可选值，具体如下： -->
+<!-- 1. salt方法，获取盐值； -->
+salt方法，获取盐值；
 ```
 import { salt } from 'arayts';  
 const salt = salt(16); // 16 表示字节长度，不写默认 16 。
 ```
 
-2. pbkdf2加密；
+<!-- 2. pbkdf2加密；
 ```
 import { pbkdf2 } from 'arayts';  
 
@@ -237,8 +240,40 @@ const data3 = pbkdf2("123","base64");
 
 // "123"：密码，必填
 // "base64"：编码，选填，默认值'hex'，可选值'hex'、'base64'
+``` -->
+#### :tada: 浏览器兼容CSS：
+提供了一个能够解决不同浏览器的兼容性问题的函数：
+```
+import { applyStyles } from 'arayts';
+
+const myElement = document.getElementById('example') as HTMLElement;
+if (myElement) {
+  applyStyles(myElement);
+}
 ```
 
+#### :tada: 数据过滤：
+在`ArayTS@1.3.0`版本中暂时仅提供模糊匹配的功能：
+```
+import { fuzzyFilter } from 'arayts';
+
+const userInput = "你好";
+const dataArray = [
+  { name: "你好世界" },
+  { name: "你好小鸟" },
+  { name: "你小鸟好" },
+  { name: "Hello World" },
+  // 其他数据项...
+];
+
+const filteredItems = fuzzyFilter(userInput, dataArray, "name"，100);
+console.log(filteredItems);
+
+// userInput：过滤数据的参考
+// dataArray：需要过滤的数据数组，对象名可自定义
+// "name"：需要过滤的字段名
+// 100：最符合过滤数据的前100个
+```
 <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/logo.jpg" alt="arayts" width="200" /></p>
 <P align="center"><b>ArayTS</b>，一套实用工具和服务，使 TypeScript 在 Vue 项目中变得轻松愉快。</P>
 <hr />
