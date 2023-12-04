@@ -22,11 +22,11 @@ I recommend you to use **ArayTS** the way you introduce it inside the component.
 Introduced in the vue file that needs to be used:
 ```
 <script lang="ts" setup>
-  import {Email} from 'arayts'  //If introduced globally, this sentence does not need to be written
+  import {Email} from 'arayts'  
 </script>
 ```
 
-### Global introduction
+<!-- ### Global introduction
 Introduced in the main.ts file:
 
 ```
@@ -43,7 +43,7 @@ If you use global import, you need to use `arayts` to call the function before a
 ```
 const isTrue = arayts.Email('3497547233@qq.com');
 const date = arayts.Time.get();
-```
+``` -->
 
 ### Manual
 #### :tada: E-mail verification:
@@ -161,8 +161,14 @@ Storage.clear();    //Clear function
 ```
 
 #### :tada: Password encryption:
-The password encryption function has four optional encryption methods (pbkdf2, bcrypt, scrypt, md5). Each encryption method has rich optional values, as follows:
-1. Salt method, obtain salt value;
+In ArayTS@1.2.8 and above, the password encryption function has been canceled in the Vue project. You can only use the salt method to obtain the salt value. Because the use of built-in modules such as crypto has been canceled in webpack > 5 versions, it is being actively used. Find equivalent alternatives.
+
+salt method, obtain the salt value;
+```
+import { salt } from 'arayts';
+const salt = salt(16); // 16 represents the byte length, the default is 16 if not written.
+```
+<!-- 1. Salt method, obtain salt value;
 ```
 import { salt } from 'arayts';   
 const salt = salt(16); // 16 represents the byte length, the default value is 16 if not written.
@@ -222,6 +228,40 @@ const data3 = pbkdf2("123","base64");
 
 // "123": Password, required
 // "base64": encoding, optional, default value 'hex', optional values 'hex', 'base64'
+``` -->
+
+#### :tada: Browser compatible with CSS:
+Provides a function that can solve the compatibility issues of different browsers:
+```
+import { applyStyles } from 'arayts';
+
+const myElement = document.getElementById('example') as HTMLElement;
+if (myElement) {
+  applyStyles(myElement);
+}
+```
+
+#### :tada: Data filtering:
+In the `ArayTS@1.3.0` version, only the fuzzy matching function is temporarily provided:
+```
+import { fuzzyFilter } from 'arayts';
+
+const userInput = "Hello";
+const dataArray = [
+  { name: "Hello World" },
+  { name: "Hello little bird" },
+  { name: "Hello little bird" },
+  { name: "Hello World" },
+  // Other data items...
+];
+
+const filteredItems = fuzzyFilter(userInput, dataArray, "name", 100);
+console.log(filteredItems);
+
+// userInput: reference for filtering data
+// dataArray: the data array that needs to be filtered, the object name can be customized
+// "name": the field name that needs to be filtered
+// 100: The top 100 that best match the filtered data
 ```
 
 <p align="center"><img src="https://github.com/Reset-Sheep/ArayTS/blob/img/logo.jpg" alt="arayts" width="200" /></p>
