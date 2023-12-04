@@ -20,7 +20,7 @@ npm install arayts --save
 在需要使用的vue文件中引入：
 ```
 <script lang="ts" setup>
-  import {Email} from 'arayts'   //若全局引入，该句可以不写
+  import {Email} from 'arayts'
 </script>
 ```
 
