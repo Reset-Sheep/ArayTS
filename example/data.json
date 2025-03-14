@@ -1,0 +1,14 @@
+{
+  "user": {
+    "id": 1,
+    "name": "张三",
+    "email": "zhangsan@example.com",
+    "age": 25,
+    "isActive": true,
+    "roles": ["admin", "user"],
+    "profile": {
+      "avatar": "https://example.com/avatar.jpg",
+      "joinDate": "2023-12-25"
+    }
+  }
+}

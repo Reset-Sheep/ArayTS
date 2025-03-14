@@ -6,15 +6,17 @@ import { salt } from "./src/other/459845231545454";
 import applyStyles from "./src/other/compatible";
 import {fuzzyFilter} from "./src/other/filter";
 import Doc from "./src/utils/mouse";
+import TypeInfer from "./src/type/typeInfer";
 
-export {Email,Phone,Time,random,Storage,salt,applyStyles,fuzzyFilter,Doc};
-// const arayts = { Email, Phone, Time, random, Storage, salt };
-// const install = (app: any) => {
-//     app.config.globalProperties.$arayts = {
-//         Email, Phone, Time, random, Storage, salt
-//     };
-// };
-// const ArayTS = (app: any) => {
-//     install(app);
-// };
-// export default ArayTS;
+export {
+    Email,
+    Phone,
+    Time,
+    random,
+    Storage,
+    salt,
+    applyStyles,
+    fuzzyFilter,
+    Doc,
+    TypeInfer
+};

@@ -1,14 +1,8 @@
 {
   "compilerOptions": {
     "outDir": "./dist",
-    "declaration": true,
-    "target": "es2016",
-    /* Modules */
-    "module": "commonjs",
-    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
-    "esModuleInterop": true,
-    "strict": true,
+    "rootDir": "./src"
   },
-  "include": ["src/**/*.ts", "tests/**/*.ts"],
-  "exclude": ["node_modules","tests/**/*.ts"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts"]
 }

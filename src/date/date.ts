@@ -97,4 +97,202 @@ class Time{
         }
     }
 }
-export default Time;
+class DateUtils {
+    private static readonly DEFAULT_FORMAT = 'YYYY/MM/DD';
+    private static readonly TIME_FORMAT = 'HH:mm:ss';
+    private static readonly FULL_FORMAT = 'YYYY/MM/DD HH:mm:ss';
+
+    /**
+     * 格式化日期
+     */
+    static format(date: Date | string | number, format: string = DateUtils.DEFAULT_FORMAT): string {
+        const d = new Date(date);
+        if (isNaN(d.getTime())) return '';
+
+        const formatMap: { [key: string]: number | string } = {
+            'YYYY': d.getFullYear(),
+            'MM': DateUtils.padZero(d.getMonth() + 1),
+            'DD': DateUtils.padZero(d.getDate()),
+            'HH': DateUtils.padZero(d.getHours()),
+            'mm': DateUtils.padZero(d.getMinutes()),
+            'ss': DateUtils.padZero(d.getSeconds()),
+            'SSS': DateUtils.padZero(d.getMilliseconds(), 3)
+        };
+
+        return Object.entries(formatMap).reduce((result, [key, value]) => {
+            return result.replace(new RegExp(key, 'g'), String(value));
+        }, format);
+    }
+
+    /**
+     * 解析日期字符串
+     */
+    static parse(dateStr: string, format: string = DateUtils.DEFAULT_FORMAT): Date {
+        const normalized = dateStr.replace(/[^0-9]/g, '');
+        const formatNormalized = format.replace(/[^YMDHms]/g, '');
+        const formatLength = formatNormalized.length;
+
+        const positions: { [key: string]: number } = {};
+        let pos = 0;
+        for (let i = 0; i < formatLength; i += 1) {
+            const char = formatNormalized[i];
+            if (!positions[char]) {
+                positions[char] = pos;
+            }
+            pos += 1;
+        }
+
+        const year = parseInt(normalized.substr(positions['Y'], 4));
+        const month = parseInt(normalized.substr(positions['M'], 2)) - 1;
+        const day = parseInt(normalized.substr(positions['D'], 2));
+        const hour = positions['H'] ? parseInt(normalized.substr(positions['H'], 2)) : 0;
+        const minute = positions['m'] ? parseInt(normalized.substr(positions['m'], 2)) : 0;
+        const second = positions['s'] ? parseInt(normalized.substr(positions['s'], 2)) : 0;
+
+        return new Date(year, month, day, hour, minute, second);
+    }
+
+    /**
+     * 日期比较
+     */
+    static compare(date1: Date | string, date2: Date | string): number {
+        const d1 = new Date(date1);
+        const d2 = new Date(date2);
+        return d1.getTime() - d2.getTime();
+    }
+
+    /**
+     * 日期加减
+     */
+    static add(date: Date | string, amount: number, unit: 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second'): Date {
+        const d = new Date(date);
+        switch (unit) {
+            case 'year':
+                d.setFullYear(d.getFullYear() + amount);
+                break;
+            case 'month':
+                d.setMonth(d.getMonth() + amount);
+                break;
+            case 'day':
+                d.setDate(d.getDate() + amount);
+                break;
+            case 'hour':
+                d.setHours(d.getHours() + amount);
+                break;
+            case 'minute':
+                d.setMinutes(d.getMinutes() + amount);
+                break;
+            case 'second':
+                d.setSeconds(d.getSeconds() + amount);
+                break;
+        }
+        return d;
+    }
+
+    /**
+     * 获取时间差
+     */
+    static diff(date1: Date | string, date2: Date | string, unit: 'year' | 'month' | 'day' | 'hour' | 'minute' | 'second'): number {
+        const d1 = new Date(date1);
+        const d2 = new Date(date2);
+        const diff = d2.getTime() - d1.getTime();
+
+        switch (unit) {
+            case 'year':
+                return DateUtils.diffYears(d1, d2);
+            case 'month':
+                return DateUtils.diffMonths(d1, d2);
+            case 'day':
+                return Math.floor(diff / (1000 * 60 * 60 * 24));
+            case 'hour':
+                return Math.floor(diff / (1000 * 60 * 60));
+            case 'minute':
+                return Math.floor(diff / (1000 * 60));
+            case 'second':
+                return Math.floor(diff / 1000);
+            default:
+                return diff;
+        }
+    }
+
+    /**
+     * 是否为有效日期
+     */
+    static isValid(date: any): boolean {
+        if (!date) return false;
+        const d = new Date(date);
+        return !isNaN(d.getTime());
+    }
+
+    /**
+     * 是否为闰年
+     */
+    static isLeapYear(year: number): boolean {
+        return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+    }
+
+    /**
+     * 获取月份天数
+     */
+    static getDaysInMonth(year: number, month: number): number {
+        return new Date(year, month + 1, 0).getDate();
+    }
+
+    /**
+     * 获取日期范围
+     */
+    static getDateRange(start: Date | string, end: Date | string): Date[] {
+        const dates: Date[] = [];
+        let current = new Date(start);
+        const endDate = new Date(end);
+
+        while (current <= endDate) {
+            dates.push(new Date(current));
+            current = DateUtils.add(current, 1, 'day');
+        }
+
+        return dates;
+    }
+
+    /**
+     * 获取相对时间描述
+     */
+    static getRelativeTime(date: Date | string): string {
+        const d = new Date(date);
+        const now = new Date();
+        const diff = now.getTime() - d.getTime();
+        const diffMinutes = Math.floor(diff / (1000 * 60));
+        const diffHours = Math.floor(diff / (1000 * 60 * 60));
+        const diffDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+        if (diffMinutes < 1) return '刚刚';
+        if (diffMinutes < 60) return `${diffMinutes}分钟前`;
+        if (diffHours < 24) return `${diffHours}小时前`;
+        if (diffDays < 30) return `${diffDays}天前`;
+        return DateUtils.format(d);
+    }
+
+    // 私有辅助方法
+    private static padZero(num: number, length: number = 2): string {
+        return String(num).padStart(length, '0');
+    }
+
+    private static diffYears(d1: Date, d2: Date): number {
+        const years = d2.getFullYear() - d1.getFullYear();
+        if (d2.getMonth() < d1.getMonth() || 
+            (d2.getMonth() === d1.getMonth() && d2.getDate() < d1.getDate())) {
+            return years - 1;
+        }
+        return years;
+    }
+
+    private static diffMonths(d1: Date, d2: Date): number {
+        const months = (d2.getFullYear() - d1.getFullYear()) * 12 + d2.getMonth() - d1.getMonth();
+        if (d2.getDate() < d1.getDate()) {
+            return months - 1;
+        }
+        return months;
+    }
+}
+
+export default DateUtils;

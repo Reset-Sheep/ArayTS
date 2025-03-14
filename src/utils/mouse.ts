@@ -14,8 +14,8 @@ class MousePositionTracker {
 
     getScroll(): MousePosition {
         return {
-            x: window.pageXOffset !== undefined ? window.pageXOffset : (document.documentElement || document.body.parentNode || document.body).scrollLeft,
-            y: window.pageYOffset !== undefined ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop,
+            x: window.pageXOffset !== undefined ? window.pageXOffset : (document.documentElement || document.body.parentNode as HTMLElement || document.body).scrollLeft,
+            y: window.pageYOffset !== undefined ? window.pageYOffset : (document.documentElement || document.body.parentNode as HTMLElement || document.body).scrollTop,
         };
     }
     getMouse(): MousePosition {
