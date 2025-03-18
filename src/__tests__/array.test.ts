@@ -60,6 +60,7 @@ describe('ArrayUtils Tests', () => {
                 { id: 2, name: 'John' }
             ];
             const result = ArrayUtils.uniqueAndSort(arr, 'id');
+            
             expect(result.length).toBe(2);
             expect(result[0].id).toBe(1);
         });

@@ -49,14 +49,18 @@ function loadConfig(): ArayTSConfig {
     };
 
     try {
-        // 注册 ts-node 以支持导入 .ts 文件
-        register();
+        register({
+            transpileOnly: true,
+            compilerOptions: {
+                module: 'commonjs'
+            }
+        });
         
         const configPath = path.resolve(process.cwd(), 'arayts.config.ts');
         console.log('📑 尝试加载配置文件:', configPath);
         
         if (fs.existsSync(configPath)) {
-            const userConfig = require(configPath).default;
+            const userConfig = require(configPath);
             console.log('🔍 解析后的配置:', userConfig);
             
             const mergedConfig = {

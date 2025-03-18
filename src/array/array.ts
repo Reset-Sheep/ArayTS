@@ -89,12 +89,27 @@ class ArrayUtils {
         return result;
     }
 
-    /**
+     /**
      * 数组去重并按照指定字段排序
      */
-    static uniqueAndSort<T>(arr: T[], key?: keyof T): T[] {
-        const uniqueArr = ArrayUtils.unique(arr);
-        return key ? ArrayUtils.sortBy(uniqueArr, key) : uniqueArr;
+     static uniqueAndSort<T extends Record<string, any>>(arr: T[], key: keyof T): T[] {
+        // 使用 Map 来存储唯一项
+        const uniqueMap = new Map<any, T>();
+        
+        // 遍历数组，将每个项按照指定的 key 存储
+        for (const item of arr) {
+            const keyValue = item[key];
+            if (!uniqueMap.has(keyValue)) {
+                uniqueMap.set(keyValue, item);
+            }
+        }
+        
+        // 转换为数组并排序
+        return Array.from(uniqueMap.values()).sort((a, b) => {
+            if (a[key] < b[key]) return -1;
+            if (a[key] > b[key]) return 1;
+            return 0;
+        });
     }
 
     /**

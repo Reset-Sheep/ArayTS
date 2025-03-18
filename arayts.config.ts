@@ -1,5 +1,3 @@
-import * as fs from 'fs';
-import * as path from 'path';
 
 const config = {
     input: {
@@ -18,4 +16,4 @@ const config = {
     }
 };
 
-export default config;
+module.exports = config;

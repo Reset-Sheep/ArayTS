@@ -128,28 +128,31 @@ class DateUtils {
      * 解析日期字符串
      */
     static parse(dateStr: string, format: string = DateUtils.DEFAULT_FORMAT): Date {
-        const normalized = dateStr.replace(/[^0-9]/g, '');
-        const formatNormalized = format.replace(/[^YMDHms]/g, '');
-        const formatLength = formatNormalized.length;
-
-        const positions: { [key: string]: number } = {};
-        let pos = 0;
-        for (let i = 0; i < formatLength; i += 1) {
-            const char = formatNormalized[i];
-            if (!positions[char]) {
-                positions[char] = pos;
-            }
-            pos += 1;
+        // 处理日期和时间部分
+        const [datePart, timePart] = dateStr.split(' ');
+        
+        // 解析日期
+        const dateParts = datePart.split(/[/-]/);
+        if (dateParts.length !== 3) {
+            throw new Error('Invalid date format');
         }
-
-        const year = parseInt(normalized.substr(positions['Y'], 4));
-        const month = parseInt(normalized.substr(positions['M'], 2)) - 1;
-        const day = parseInt(normalized.substr(positions['D'], 2));
-        const hour = positions['H'] ? parseInt(normalized.substr(positions['H'], 2)) : 0;
-        const minute = positions['m'] ? parseInt(normalized.substr(positions['m'], 2)) : 0;
-        const second = positions['s'] ? parseInt(normalized.substr(positions['s'], 2)) : 0;
-
-        return new Date(year, month, day, hour, minute, second);
+        
+        const year = parseInt(dateParts[0]);
+        const month = parseInt(dateParts[1]) - 1; // 月份从0开始
+        const day = parseInt(dateParts[2]);
+        
+        // 创建日期对象，默认时间为0
+        const date = new Date(year, month, day);
+        
+        // 如果有时间部分，解析并设置时间
+        if (timePart) {
+            const timeParts = timePart.split(':');
+            if (timeParts.length >= 1) date.setHours(parseInt(timeParts[0]));
+            if (timeParts.length >= 2) date.setMinutes(parseInt(timeParts[1]));
+            if (timeParts.length >= 3) date.setSeconds(parseInt(timeParts[2]));
+        }
+        
+        return date;
     }
 
     /**
