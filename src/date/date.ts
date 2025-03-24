@@ -1,11 +1,11 @@
-class Time{
+class TimeUtils{
     private static getFormattedLocalDate(): string {
         const now = new Date();
         return now.toLocaleDateString();
     }
     static get(format?:string) {
         try{
-            const localDate = Time.getFormattedLocalDate();
+            const localDate = TimeUtils.getFormattedLocalDate();
             if (!format || format === "YYYY/MM/DD") {
                 return localDate;
             } else {
@@ -33,7 +33,7 @@ class Time{
     }
     static days(previousDate:string,laterDate?:string): number {
         try{
-            const localDate = new Date(Time.getFormattedLocalDate());
+            const localDate = new Date(TimeUtils.getFormattedLocalDate());
             const start = new Date(previousDate);
             const end = laterDate ? new Date(laterDate) : localDate;
             // 将日期转换为时间戳，计算天数差值，然后转换为天数
@@ -46,7 +46,7 @@ class Time{
     }
     static months(previousDate: string, laterDate?: string): number {
         try {
-            const localDate = new Date(Time.getFormattedLocalDate());
+            const localDate = new Date(TimeUtils.getFormattedLocalDate());
             const start = new Date(previousDate);
             const end = laterDate ? new Date(laterDate) : localDate;
 
@@ -89,7 +89,7 @@ class Time{
     static order(previousDate: string, laterDate?: string): boolean {
         try {
             const start = new Date(previousDate);
-            const end = laterDate?new Date(laterDate): new Date(Time.getFormattedLocalDate());
+            const end = laterDate?new Date(laterDate): new Date(TimeUtils.getFormattedLocalDate());
             return start <= end;
         } catch (e) {
             console.log(e);
