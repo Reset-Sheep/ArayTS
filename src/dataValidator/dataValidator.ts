@@ -100,36 +100,3 @@ export class DataConverter {
     console.error(`[DataConverter Error] Context: ${context} - ${error.message}`);
   }
 }
-
-// 示例：使用 DataValidator 进行数据验证和转换
-
-// const validationRules = {
-//   userId: { type: 'string', required: true },
-//   age: { type: 'number', required: true, transform: (value: any) => Math.floor(Number(value)) }, // 转换为整数
-//   email: { type: 'string', required: false },
-//   createdAt: { type: 'date', required: true },
-// };
-
-// const dataValidator = new DataValidator(validationRules);
-
-// const inputData = {
-//   userId: '123',
-//   age: '29.9', // 这是一个字符串，需要转换成数字
-//   email: 'example@example.com',
-//   createdAt: '2023-03-25T12:00:00Z', // 字符串，需要转换成日期
-// };
-
-// const result = dataValidator.validate(inputData);
-// if (!result.isValid) {
-//   console.log('Validation failed:', result.errors);
-// } else {
-//   console.log('Validation passed:', inputData);
-// }
-
-// // 使用 DataConverter 进行类型转换
-// try {
-//   const convertedDate = DataConverter.convert('2023-03-25', 'date');
-//   console.log('Converted Date:', convertedDate);
-// } catch (error) {
-//   DataConverter.handleError(error, 'Date conversion');
-// }
