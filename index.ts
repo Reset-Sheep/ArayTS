@@ -1,12 +1,36 @@
-import {Email,Phone} from "./src/validation/validation";
-import TimeUtils from "./src/date/date";
-import random from "./src/other/random";
-import applyStyles from "./src/other/compatible";
-import {fuzzyFilter} from "./src/other/filter";
-import { Async } from "./src/async/async";
+import ArrayUtils from "./src/array/array";
 import { ObjectUtils } from "./src/utils/object";
+import { TimeUtils, DateUtils } from "./src/date/date";
+import { Async } from "./src/async/async";
+import { fuzzyFilter } from "./src/other/filter";
+import applyStyles from "./src/other/compatible";
+import random from "./src/other/random";
 import { base64ToFile } from './src/utils/fileUtils';
-import { memoize,
+import {
+    UnwrapPromise,
+    Optional,
+    Required,
+    Readonly,
+    ReturnTypeOf,
+    ArrayElement,
+    Merge,
+    UnionToIntersection,
+    Exclude,
+    Parameters,
+    MethodsOf,
+    KeysOf,
+    ValuesOf,
+    Record,
+    NonNullableProperties,
+    Pick,
+    UnionToTuple,
+    PublicProperties,
+    StringLiteral,
+    TypedEventEmitter
+} from "./src/utils/typeUtils";
+import { DataValidator, DataConverter } from "./src/dataValidator/dataValidator";
+import {
+    memoize,
     LRUCache,
     shuffle,
     longestCommonSubsequence,
@@ -19,22 +43,45 @@ import { memoize,
     kmp,
     Trie,
     topologicalSort
- } from "./src/algorithm/algorithms";
+} from "./src/algorithm/algorithms";
+import { AStar } from "./src/algorithm/astar";
+import { BloomFilter } from "./src/algorithm/bloomfilter";
+import { RedBlackTree } from "./src/algorithm/redblacktree";
+import { Email, Phone } from "./src/validation/validation";
 
- import {AStar} from "./src/algorithm/astar";
-import {BloomFilter} from "./src/algorithm/bloomfilter";
-import {RedBlackTree} from "./src/algorithm/redblacktree";
 
 export {
-    Email,
-    Phone,
-    TimeUtils,
-    random,
-    applyStyles,
-    fuzzyFilter,
-    Async,
+    ArrayUtils,
     ObjectUtils,
+    TimeUtils,
+    DateUtils,
+    Async,
+    fuzzyFilter,
+    applyStyles,
+    random,
     base64ToFile,
+    UnwrapPromise,
+    Optional,
+    Required,
+    Readonly,
+    ReturnTypeOf,
+    ArrayElement,
+    Merge,
+    UnionToIntersection,
+    Exclude,
+    Parameters,
+    MethodsOf,
+    KeysOf,
+    ValuesOf,
+    Record,
+    NonNullableProperties,
+    Pick,
+    UnionToTuple,
+    PublicProperties,
+    StringLiteral,
+    TypedEventEmitter,
+    DataValidator,
+    DataConverter,
     memoize,
     LRUCache,
     shuffle,
@@ -50,5 +97,7 @@ export {
     topologicalSort,
     AStar,
     BloomFilter,
-    RedBlackTree
+    RedBlackTree,
+    Email,
+    Phone,
 };
