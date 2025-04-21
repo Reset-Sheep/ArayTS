@@ -49,7 +49,6 @@ import { BloomFilter } from "./src/algorithm/bloomfilter";
 import { RedBlackTree } from "./src/algorithm/redblacktree";
 import { Email, Phone } from "./src/validation/validation";
 
-
 export {
     ArrayUtils,
     ObjectUtils,
